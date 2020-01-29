@@ -1,20 +1,7 @@
 // import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Body,
-  Text,
-  ListItem,
-  Left,
-  Thumbnail,
-  List,
-  Right,
-  Button
-} from 'native-base';
+import { Container, Header, Title, Content, Body, Text } from 'native-base';
 
 export default function CarwashScreen(props) {
   const { navigation } = props;

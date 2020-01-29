@@ -13,7 +13,8 @@ import {
   Thumbnail,
   List,
   Right,
-  Button
+  Button,
+  Icon
 } from 'native-base';
 
 // const data = {
@@ -44,21 +45,22 @@ import {
 const initialState = [
   {
     id: 1,
-    name: 'Blesk',
+    name: 'Auto Blesk',
     location: '34.324234',
     city: 'Tashkent'
   },
   {
     id: 2,
-    name: 'Blesk2',
+    name: 'Car Wash',
     location: '34.324234',
     city: 'Tashkent'
   },
   {
     id: 3,
-    name: 'Blesk3',
+    name: 'Splash Washer',
     location: '34.324234',
-    city: 'Tashkent'
+    city: 'Tashkent',
+    picture: 'www.hatchwise.com/entry/L968553-20141105223518.png'
   }
 ];
 
@@ -68,16 +70,26 @@ export default function HomeScreen(props) {
   return (
     <Container>
       <Header>
+        <Left>
+          <Button transparent onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+            <Icon name="menu" />
+          </Button>
+        </Left>
         <Body>
-          <Title>Header</Title>
+          <Title>HomeScreen</Title>
         </Body>
+        <Right />
       </Header>
       <Content>
         <List>
           {initialState.map(carwash => (
             <ListItem key={carwash.id} thumbnail>
               <Left>
-                <Thumbnail square source={{ uri: 'Image URL' }} />
+                <Thumbnail
+                  square
+                  source={{ uri: 'http://www.hatchwise.com/entry/L968553-20141105223518.png' }}
+                  style={{ borderRadius: 30 }}
+                />
               </Left>
               <Body>
                 <Text>{carwash.name}</Text>
@@ -90,17 +102,17 @@ export default function HomeScreen(props) {
                   transparent
                   onPress={() =>
                     navigate('Carwash', {
-                      companyDetails: { name: carwash.name, city: carwash.city }
+                      companyDetails: { name: carwash.location, city: carwash.city }
                     })
                   }
                 >
-                  <Text>dsdss</Text>
+                  <Text>Details</Text>
                 </Button>
               </Right>
             </ListItem>
           ))}
         </List>
-        <Text>This is Content Sfdsecfdasftion</Text>
+        <Text>Contect</Text>
       </Content>
     </Container>
   );
